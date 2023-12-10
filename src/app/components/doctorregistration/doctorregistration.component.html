@@ -1,0 +1,95 @@
+
+<header class="bg-primary text-white text-center py-3">
+  <h1>Hospital Management System</h1>
+ 
+</header>
+<h1 style="text-align:center">Doctor Registration Form</h1>
+<br>
+<br>
+<div class="container col-md-4">
+  <form [formGroup]="doctorRegistrationForm" (ngSubmit)="onSubmit()"> 
+    
+    <div class="form-control">
+      <label for="doctorName">Doctor Name:</label>
+      <input type="text" id="doctorName" formControlName="doctorName" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['doctorName'].errors}">
+      <div *ngIf="Submitted && f['doctorName'].errors" class="invalid-feedback">
+        <div *ngIf="f['doctorName'].errors['required']">Doctor Name is Required</div>
+    
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" formControlName="gender" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['gender'].errors}">
+      <div *ngIf="Submitted && f['gender'].errors" class="invalid-feedback">
+        <div *ngIf="f['gender'].errors['pattern']">Invalid gender. Must be 'M' or 'F'</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="speciality">Speciality:</label>
+      <input type="text" id="speciality" formControlName="speciality" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['speciality'].errors}">
+      <div *ngIf="Submitted && f['speciality'].errors" class="invalid-feedback">
+        <div *ngIf="f['speciality'].errors['required']">Speciality is Required</div>
+
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="experience">Experience:</label>
+      <input type="number" id="experience" formControlName="experience" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['experience'].errors}">
+      <div *ngIf="Submitted && f['experience'].errors" class="invalid-feedback">
+        <div *ngIf="f['experience'].errors['positive']">Experience must be a positive value</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="qualification">Qualification:</label>
+      <input type="text" id="qualification" formControlName="qualification" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['qualification'].errors}">
+      <div *ngIf="Submitted && f['qualification'].errors" class="invalid-feedback">
+        <div *ngIf="f['qualification'].errors['pattern']">Invalid characters in the input</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" formControlName="designation" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['designation'].errors}">
+      <div *ngIf="Submitted && f['designation'].errors" class="invalid-feedback">
+        
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" formControlName="userName" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['userName'].errors}">
+      <div *ngIf="Submitted && f['userName'].errors" class="invalid-feedback">
+        <div *ngIf="f['userName'].errors['required']">Username is Required</div>
+        
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['password'].errors}">
+      <div *ngIf="Submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is Required</div>
+
+      </div>
+    </div>
+    
+    <br>
+    <br>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>

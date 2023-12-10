@@ -1,0 +1,46 @@
+<!-- <form #prescriptionForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="addPrescription(prescriptionForm.value)">-->
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Hospital Management System</h1>
+       
+    </header>
+
+
+    <h1 style="text-align:center">Prescription Form</h1>
+  <br>
+  <br>
+    <!-- <form #myForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="addPrescription(myForm.value)"> -->
+      <form #myForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="addPrescription(myForm.value)">
+      <div class="form-group"> 
+          <label>Prescription ID:</label>
+          <input type="text" class="form-control" #prescriptionIdControl="ngModel" name="prescriptionId" required ngModel>
+          <span style="color: red;" *ngIf="prescriptionIdControl.touched && prescriptionIdControl.invalid">Prescription ID is Mandatory</span>
+        </div>
+      
+        <div class="form-group">
+          <label>Medicine Name:</label>
+          <input type="text" class="form-control" #medicineNameControl="ngModel" name="medicineName" required ngModel>
+          <span style="color: red;" *ngIf="medicineNameControl.touched && medicineNameControl.invalid">Medicine Name is Mandatory</span>
+        </div>
+      
+        <div class="form-group">
+          <label>Price:</label>
+          <input type="number" class="form-control" #priceControl="ngModel" name="price" required ngModel>
+          <span style="color: red;" *ngIf="priceControl.touched && priceControl.invalid">Price is Mandatory</span>
+        </div>
+      
+        <!-- Add any additional fields as needed -->
+        <div class="button-container">
+      
+        <!-- <button type="submit"  class="btn btn-primary" [disabled]="myForm.invalid">Submit Prescription</button> -->
+        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit Prescription</button>
+        <!-- <button type="button" class="my-button" routerLink="/doctordashboard">Back</button> -->
+    </div>
+      </form>
+      <footer class="bg-primary text-center text-white fixed-bottom"> 
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+           © 2023 Copyright:
+           <a class="text-white" href="https://hexaware.com/">Hexaware</a>
+       </div>
+       
+       </footer>

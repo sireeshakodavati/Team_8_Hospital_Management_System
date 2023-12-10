@@ -1,0 +1,40 @@
+<h1 style="text-align:center">Appointment Form</h1>
+<br>
+<br>
+<div class="container col-md-4">
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="appointmentDate">Appointment Date:</label>
+      <input type="text" id="appointmentDate" formControlName="appointmentDate" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['appointmentDate'].errors}">
+      <div *ngIf="Submitted && f['appointmentDate'].errors" class="invalid-feedback">
+        <div *ngIf="f['appointmentDate'].errors['required']">Appointment Date is Required</div>
+        <div *ngIf="f['appointmentDate'].errors['pattern']">Invalid date format. Use yyyy-MM-dd</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="appointmentTime">Appointment Time:</label>
+      <input type="text" id="appointmentTime" formControlName="appointmentTime" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['appointmentTime'].errors}">
+      <div *ngIf="Submitted && f['appointmentTime'].errors" class="invalid-feedback">
+        <div *ngIf="f['appointmentTime'].errors['pattern']">Invalid time format. Use hh:mm:ss AM/PM</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="status">Status:</label>
+      <input type="text" id="status" formControlName="status" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['status'].errors}">
+      <div *ngIf="Submitted && f['status'].errors" class="invalid-feedback">
+        <div *ngIf="f['status'].errors['pattern']">Invalid status format</div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit Appointment</button>
+    </div>
+  </form>
+</div>

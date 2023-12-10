@@ -1,0 +1,105 @@
+<header class="bg-primary text-white text-center py-3">
+  <h1>Hospital Management System</h1>
+ 
+</header>
+
+<h1 style="text-align:center">Patient Registration Form</h1>
+<br>
+<br>
+<div class="container col-md-4">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" formControlName="userName" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['userName'].errors}">
+      <div *ngIf="Submitted && f['userName'].errors" class="invalid-feedback">
+        <div *ngIf="f['userName'].errors['required']">Username is Required</div>
+        <div *ngIf="f['userName'].errors['pattern']">Username must start with an uppercase letter and be 3-20 characters long</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['password'].errors}">
+      <div *ngIf="Submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is Required</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="patientName">Patient Name:</label>
+      <input type="text" id="patientName" formControlName="patientName" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['patientName'].errors}">
+      <div *ngIf="Submitted && f['patientName'].errors" class="invalid-feedback">
+        <div *ngIf="f['patientName'].errors['required']">Patient Name is Required</div>
+        <div *ngIf="f['patientName'].errors['pattern']">Patient Name must start with an uppercase letter and be 3-20 characters long</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="dateOfBirth">Date of Birth:</label>
+      <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="yyyy-MM-dd" class="form-control"
+        [ngClass]="{'is-invalid': Submitted && f['dateOfBirth'].errors}">
+      <div *ngIf="Submitted && f['dateOfBirth'].errors" class="invalid-feedback">
+        <div *ngIf="f['dateOfBirth'].errors['pattern']">Invalid date format. Use yyyy-MM-dd</div>
+      </div>
+    </div>
+
+    <div class="form-control">
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" formControlName="gender" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['gender'].errors}">
+        <div *ngIf="Submitted && f['gender'].errors" class="invalid-feedback">
+          <div *ngIf="f['gender'].errors['pattern']">Invalid gender. Must be 'M' or 'F'</div>
+        </div>
+      </div>
+      
+      <div class="form-control">
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['mobileNumber'].errors}">
+        <div *ngIf="Submitted && f['mobileNumber'].errors" class="invalid-feedback">
+        </div>
+      </div>
+      
+      <div class="form-control">
+        <label for="disease">Disease:</label>
+        <input type="text" id="disease" formControlName="disease" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['disease'].errors}">
+        <div *ngIf="Submitted && f['disease'].errors" class="invalid-feedback">
+        </div>
+      </div>
+      
+      <div class="form-control">
+        <label for="natureOfVisit">Nature of Visit:</label>
+        <input type="text" id="natureOfVisit" formControlName="natureOfVisit" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['natureOfVisit'].errors}">
+        <div *ngIf="Submitted && f['natureOfVisit'].errors" class="invalid-feedback">
+        </div>
+      </div>
+      
+      <div class="form-control">
+        <label for="preferredDate">Preferred Date:</label>
+        <input type="text" id="preferredDate" formControlName="preferredDate" placeholder="yyyy-MM-dd" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['preferredDate'].errors}">
+        <div *ngIf="Submitted && f['preferredDate'].errors" class="invalid-feedback">
+          <div *ngIf="f['preferredDate'].errors['pattern']">Invalid date format. Use yyyy-MM-dd</div>
+        </div>
+      </div>
+      
+      <div class="form-control">
+        <label for="preferredTime">Preferred Time:</label>
+        <input type="text" id="preferredTime" formControlName="preferredTime" placeholder="hh:mm:ss AM/PM" class="form-control"
+          [ngClass]="{'is-invalid': Submitted && f['preferredTime'].errors}">
+        <div *ngIf="Submitted && f['preferredTime'].errors" class="invalid-feedback">
+          <div *ngIf="f['preferredTime'].errors['pattern']">Invalid time format. Use hh:mm:ss AM/PM</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+  
